@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+  <head>
+    <title>管理者検索</title>
+     <meta http-equiv = "Content-Type" content ="text/html; charset = utf-8">
+  </head>
+  <body>
+    <br>落し物管理システム</br>
+    管理者検索
+    <div align = "right"><a href = "Toppage.html" > トップページ</a></div>
+
+    
+    
+    <script type="text/javascript">
+  var date = new Date()
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+
+  var toTargetDigits = function (num, digits) {
+    num += ''
+    while (num.length < digits) {
+      num = '0' + num
+    }
+    return num
+  }
+  var yyyy = toTargetDigits(year, 4)
+  var mm = toTargetDigits(month, 2)
+  var dd = toTargetDigits(day, 2)
+  var Nowtime = yyyy+"-"+mm+"-"+dd			
+</script>
+
+      
+    <form method ="get" action = "Ownersearch.php">
+      落し物ID:<input type="text" name ="id" value = "001">
+
+      <br>発見場所:<select name="place">
+	<option value = "NULL">---</option>
+	<option value = "A棟">A棟</option>
+	<option value = "B棟">B棟</option>
+	<option value = "C棟">C棟</option>
+	<option value = "K棟">K棟</option>
+	<option value = "本館">本館</option>
+	<option value = "食堂">食堂</option>
+	<option value = "講堂">講堂</option>
+	<option value = "体育館">体育館</option>
+	<option value = "グラウンド">グラウンド</option>
+	<option value = "グリーンキャンパス">グリーンキャンパス</option>
+	<option value = "テニスコート">テニスコート</option>
+	<option value = "その他">その他</option>
+	</select>
+    <br>種類:<select name = "category">
+    <option value = "NULL">---</option>
+    <option value = "貴重品">貴重品</option>
+    <option value = "電子機器">電子機器</option>
+    <option value = "衣類･日用品">衣類･日用品</option>
+    <option value = "文房具">文房具</option>
+    <option value = "書類">書類</option>
+    <option value = "その他">その他</option>
+    
+    </select>
+
+    <br>日付:<input type ="date" value = Nowtime name = "time"  >
+    <br> 受け取り情報: 
+      <input type = "radio" name = "check" value = "1" > 返却
+      <input type = "radio" name = "check" value = "0" checked> 未返却
+      <br><input type ="submit" value = "検索">
+    </form>
+  </body>
+</html>
